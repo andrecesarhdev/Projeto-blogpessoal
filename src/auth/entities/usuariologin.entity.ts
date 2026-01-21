@@ -4,3 +4,4 @@ export class UsuarioLogin {
   public usuario: string;
   public senha: string;
 }
+// DTO -> Data Transfer Object
