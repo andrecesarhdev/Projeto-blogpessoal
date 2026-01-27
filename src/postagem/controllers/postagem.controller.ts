@@ -11,12 +11,15 @@ import {
   Put,
   UseGuards, // Mapeia o método para requisições HTTP PUT
 } from '@nestjs/common';
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
+import { JwtAuthGuard } from '../../auth/guard/jwt-auth.guard';
 import { Postagem } from '../entities/postagem.entity'; // Importa a entidade Postagem
 import { PostagemService } from '../services/postagem.service'; // Importa o serviço PostagemService
-import { JwtAuthGuard } from '../../auth/guard/jwt-auth.guard';
 
+@ApiTags('Postagem')
 @UseGuards(JwtAuthGuard)
 @Controller('/postagens') // Define o prefixo das rotas desse controller como /postagens
+@ApiBearerAuth()
 export class PostagemController {
   constructor(private readonly postagemService: PostagemService) {} // Injeta o serviço PostagemService
 
