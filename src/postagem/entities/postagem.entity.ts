@@ -32,14 +32,14 @@ export class Postagem {
   data: Date;
 
   // Relacionamento entre as tabelas postagem e tema
-  @ApiProperty()
+  @ApiProperty({ type: () => Tema })
   @ManyToOne(() => Tema, (tema) => tema.postagem, {
     onDelete: 'CASCADE',
   })
   tema: Tema;
 
   // Relacionamento entre as tabelas postagem e usuario
-  @ApiProperty()
+  @ApiProperty({ type: () => Usuario })
   @ManyToOne(() => Usuario, (usuario) => usuario.postagem, {
     onDelete: 'CASCADE',
   })
