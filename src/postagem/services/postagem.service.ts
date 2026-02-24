@@ -17,6 +17,7 @@ export class PostagemService {
     return await this.postagemRepository.find({
       relations: {
         tema: true,
+        usuario: true,
       },
     });
   }
@@ -29,6 +30,7 @@ export class PostagemService {
       },
       relations: {
         tema: true,
+        usuario: true,
       },
     });
     // Se nao achou a postagem ali em cima da um erro de "Não encontrado " pro usuario.
